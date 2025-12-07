@@ -58,10 +58,19 @@ Public Class DashboardUserControl
     ' ---------------- TIMER LOOP ----------------
     ' Make the Tick handler async and await the network call
     Private Async Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        ' quick local updates
+        ' quick local updates (sensor simulation)
         For Each s In sensors
             s.Tick()
         Next
+
+        ' Render sensor cards/dots immediately and safely BEFORE any awaited network I/O.
+        ' This ensures the dot is drawn even if the user navigates panels or network is slow.
+        If sensors.Count > 0 Then
+            UpdateSensorCard(sensors(0), lblS1Status, lblS1Signal, lblS1Battery, dotS1)
+        End If
+        If sensors.Count > 1 Then
+            UpdateSensorCard(sensors(1), lblS2Status, lblS2Signal, lblS2Battery, dotS2)
+        End If
 
         ' do network I/O off the UI-blocking path
         Dim waterTuple = Await GetWaterDataFromReceiverAsync()
@@ -127,27 +136,65 @@ Public Class DashboardUserControl
     ' ---------------- DOT RENDERING ----------------
     Private dotPaintAttached As New HashSet(Of Control)()
 
+    ' Helper to safely marshal actions to UI and guard against disposed controls
+    Private Sub SafeInvoke(ctrl As Control, action As Action)
+        If ctrl Is Nothing Then Return
+        Try
+            If ctrl.IsDisposed OrElse ctrl.Disposing Then Return
+            If ctrl.InvokeRequired Then
+                ctrl.Invoke(action)
+            Else
+                action()
+            End If
+        Catch
+            ' If invocation fails (control is disposed mid-call), swallow to avoid crash.
+        End Try
+    End Sub
+
     Private Sub SetDotFillColor(dotControl As Control, fillColor As Color)
-        'Store fill color in Tag property
-        dotControl.Tag = fillColor
+        ' Defensive: ensure control exists and not disposed
+        If dotControl Is Nothing Then Return
+        If dotControl.IsDisposed OrElse dotControl.Disposing Then Return
 
-        If Not dotPaintAttached.Contains(dotControl) Then
-            AddHandler dotControl.Paint, AddressOf DotControl_Paint
-            dotPaintAttached.Add(dotControl)
+        ' All UI updates must run on the control's UI thread
+        SafeInvoke(dotControl, Sub()
+                                   'Store fill color in Tag property
+                                   dotControl.Tag = fillColor
 
-            Try
-                dotControl.BackColor = dotControl.Parent.BackColor
-            Catch
-            End Try
-        End If
+                                   If Not dotPaintAttached.Contains(dotControl) Then
+                                       Try
+                                           AddHandler dotControl.Paint, AddressOf DotControl_Paint
+                                           dotPaintAttached.Add(dotControl)
+                                       Catch
+                                           ' In rare cases handler attach can fail if control is disposing; ignore.
+                                       End Try
 
-        dotControl.Invalidate()
+                                       Try
+                                           ' Set dot background to parent's background if available
+                                           If dotControl.Parent IsNot Nothing Then
+                                               dotControl.BackColor = dotControl.Parent.BackColor
+                                           End If
+                                       Catch
+                                           ' ignore parent access errors
+                                       End Try
+                                   End If
+
+                                   ' Invalidate to force repaint if it's safe
+                                   Try
+                                       If Not dotControl.IsDisposed AndAlso dotControl.IsHandleCreated Then
+                                           dotControl.Invalidate()
+                                       End If
+                                   Catch
+                                       ' ignore invalidation errors
+                                   End Try
+                               End Sub)
     End Sub
 
     Private Sub DotControl_Paint(sender As Object, e As PaintEventArgs)
         'This function is literally just drawing a colored circle since Control.fillColor() doesn't work on controls fym bro
         Dim c = TryCast(sender, Control)
         If c Is Nothing Then Return
+        If c.IsDisposed OrElse c.Disposing Then Return
 
         Dim fill As Color = If(TypeOf c.Tag Is Color, CType(c.Tag, Color), c.BackColor)
 
@@ -176,11 +223,21 @@ Public Class DashboardUserControl
                                  lblBattery As Label,
                                  dotControl As Control)
 
-        lblStatus.Text = If(s.IsActive, "Active", "Offline")
-        lblSignal.Text = s.Signal
-        lblBattery.Text = s.Battery.ToString() & "%"
+        ' Guard against labels being Nothing or disposed
+        If lblStatus IsNot Nothing AndAlso Not lblStatus.IsDisposed Then
+            SafeInvoke(lblStatus, Sub() lblStatus.Text = If(s.IsActive, "Active", "Offline"))
+        End If
+        If lblSignal IsNot Nothing AndAlso Not lblSignal.IsDisposed Then
+            SafeInvoke(lblSignal, Sub() lblSignal.Text = s.Signal)
+        End If
+        If lblBattery IsNot Nothing AndAlso Not lblBattery.IsDisposed Then
+            SafeInvoke(lblBattery, Sub() lblBattery.Text = s.Battery.ToString() & "%")
+        End If
 
-        SetDotFillColor(dotControl, If(s.IsActive, Color.LimeGreen, Color.Red))
+        ' Dot rendering is handled safely inside SetDotFillColor
+        If dotControl IsNot Nothing Then
+            SetDotFillColor(dotControl, If(s.IsActive, Color.LimeGreen, Color.Red))
+        End If
     End Sub
 
 
