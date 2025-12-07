@@ -80,7 +80,9 @@ Partial Class AlertsUserControl
         ' 
         ' Guna2Panel1
         ' 
-        Guna2Panel1.BorderRadius = 15
+        Guna2Panel1.BorderColor = Color.FromArgb(CByte(204), CByte(204), CByte(204))
+        Guna2Panel1.BorderRadius = 10
+        Guna2Panel1.BorderThickness = 1
         Guna2Panel1.Controls.Add(Panel2)
         Guna2Panel1.Controls.Add(Panel1)
         Guna2Panel1.Controls.Add(Guna2ComboBox4)
@@ -93,7 +95,7 @@ Partial Class AlertsUserControl
         Guna2Panel1.Controls.Add(Label1)
         Guna2Panel1.CustomizableEdges = CustomizableEdges9
         Guna2Panel1.FillColor = Color.White
-        Guna2Panel1.Location = New Point(13, 15)
+        Guna2Panel1.Location = New Point(14, 17)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2Panel1.Size = New Size(424, 890)
@@ -296,10 +298,10 @@ Partial Class AlertsUserControl
         ' 
         ' Guna2Panel2
         ' 
-        Guna2Panel2.BackColor = Color.White
-        Guna2Panel2.BorderColor = Color.Silver
-        Guna2Panel2.BorderRadius = 15
-        Guna2Panel2.BorderStyle = Drawing2D.DashStyle.Dot
+        Guna2Panel2.BackColor = Color.Transparent
+        Guna2Panel2.BorderColor = Color.FromArgb(CByte(204), CByte(204), CByte(204))
+        Guna2Panel2.BorderRadius = 10
+        Guna2Panel2.BorderThickness = 1
         Guna2Panel2.Controls.Add(txtBroadcastMessage)
         Guna2Panel2.Controls.Add(Guna2Button6)
         Guna2Panel2.Controls.Add(Label9)
@@ -310,7 +312,8 @@ Partial Class AlertsUserControl
         Guna2Panel2.Controls.Add(Guna2Button2)
         Guna2Panel2.Controls.Add(Guna2Button3)
         Guna2Panel2.CustomizableEdges = CustomizableEdges23
-        Guna2Panel2.ForeColor = Color.Silver
+        Guna2Panel2.FillColor = Color.White
+        Guna2Panel2.ForeColor = Color.Black
         Guna2Panel2.Location = New Point(472, 15)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges24

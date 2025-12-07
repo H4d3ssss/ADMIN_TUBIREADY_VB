@@ -180,7 +180,6 @@ Partial Class MainForm
         btnSensors.DisabledState.CustomBorderColor = Color.DarkGray
         btnSensors.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnSensors.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnSensors.Enabled = False
         btnSensors.FillColor = Color.Black
         btnSensors.FocusedColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
         btnSensors.Font = New Font("Segoe UI", 11.25F, FontStyle.Bold)
