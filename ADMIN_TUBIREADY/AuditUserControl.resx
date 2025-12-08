@@ -123,9 +123,6 @@
   <metadata name="AdminName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="AdminRole.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Action.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -139,14 +136,6 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Guna2Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAHhJREFUSEtjGAWjgDxgZGRUb2xs/J9cDNRfADUKE4AksWkiFgP150ONGq7AxMTE
-        ARQHhDAwOAKgWogHQI330cMUGwapg2ohHgA1BiC7EBc2NDS0h2oZScDAwEAA6P3zaGF9HyQOVUI+gBqO
-        ErkgPlUMHwWjAAoYGABiAW4K4HCd3wAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="Guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAACEYr13AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -171,7 +160,7 @@
   <data name="Guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAGFJREFUaEPt1kEKgDAQA8D+/5M+xSp4KBSXJTdlBgI9hLDHDgD4o+PK+eR+v0l6
+        DwAACw8BkvkDpQAAAGFJREFUaEPt1kEKgDAQA8D+/5M+xSp4KBSXJTdlBgI9hLDHDgD4o+PK+eR+v0l6
         aar9TXJYt5em2gcAYJF80rq9NNX+Jjms20tT7QMAsEg+ad1emmp/kxzW7aWp9gHgi8aY4omW5Srj1s4A
         AAAASUVORK5CYII=
 </value>

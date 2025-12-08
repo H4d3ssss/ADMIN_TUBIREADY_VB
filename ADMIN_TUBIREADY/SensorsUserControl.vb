@@ -7,10 +7,19 @@ Public Class SensorsUserControl
     Private http As New HttpClient()
 
     Private Sub SensorsUserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Auto update every 3 seconds
         updateTimer = New System.Timers.Timer(3000)
+        updateTimer.SynchronizingObject = Me    ' marshals Elapsed to UI thread once handle exists
         AddHandler updateTimer.Elapsed, AddressOf UpdateSensorData
-        updateTimer.Start()
+        ' Option A: start here if handle is guaranteed created
+        ' Option B (safer): start in OnHandleCreated override
+
+        ' Set initial date/time immediately on load
+        lblDateTime.Text = DateTime.Now.ToString("dddd, MMMM, dd, yyyy - HH:mm tt")
+    End Sub
+
+    Protected Overrides Sub OnHandleCreated(e As EventArgs)
+        MyBase.OnHandleCreated(e)
+        tmrUpdate?.Start()
     End Sub
 
     Private Async Sub UpdateSensorData(source As Object, e As ElapsedEventArgs)
@@ -18,17 +27,19 @@ Public Class SensorsUserControl
             Dim temp As String = Await GetDataAsync("temp")
             Dim humid As String = Await GetDataAsync("humidity")
 
-            ' Update UI
+            ' Update UI including date/time
             Me.Invoke(Sub()
                           lblTemp.Text = temp & "°C"
                           lblHumid.Text = humid & "%"
+                          lblDateTime.Text = DateTime.Now.ToString("dddd, MMMM, dd, yyyy - HH:mm tt")
                       End Sub)
 
         Catch ex As Exception
-            ' Error fallback
+            ' Error fallback - still update date/time
             Me.Invoke(Sub()
                           lblTemp.Text = "ERR"
                           lblHumid.Text = "ERR"
+                          lblDateTime.Text = DateTime.Now.ToString("dddd, MMMM, dd, yyyy - HH:mm tt")
                       End Sub)
         End Try
     End Sub

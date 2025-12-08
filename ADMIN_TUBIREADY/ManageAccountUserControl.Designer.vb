@@ -32,8 +32,6 @@ Partial Class ManageAccountUserControl
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -48,14 +46,17 @@ Partial Class ManageAccountUserControl
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2DataGridView1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Column1 = New DataGridViewCheckBoxColumn()
+        ID = New DataGridViewTextBoxColumn()
         AdminName = New DataGridViewTextBoxColumn()
         EmailAddress = New DataGridViewTextBoxColumn()
-        AdminRole = New DataGridViewTextBoxColumn()
+        LastLogin = New DataGridViewTextBoxColumn()
         AccountCreated = New DataGridViewTextBoxColumn()
         Edit = New DataGridViewButtonColumn()
         Delete = New DataGridViewButtonColumn()
@@ -63,13 +64,13 @@ Partial Class ManageAccountUserControl
         Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2ComboBox2 = New Guna.UI2.WinForms.Guna2ComboBox()
         Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button5 = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Guna2ComboBox3 = New Guna.UI2.WinForms.Guna2ComboBox()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
         CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +127,7 @@ Partial Class ManageAccountUserControl
         Guna2DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Guna2DataGridView1.ColumnHeadersHeight = 17
         Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Guna2DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, AdminName, EmailAddress, AdminRole, AccountCreated, Edit, Delete})
+        Guna2DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, ID, AdminName, EmailAddress, LastLogin, AccountCreated, Edit, Delete})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -168,6 +169,11 @@ Partial Class ManageAccountUserControl
         Column1.HeaderText = ""
         Column1.Name = "Column1"
         ' 
+        ' ID
+        ' 
+        ID.HeaderText = "ID"
+        ID.Name = "ID"
+        ' 
         ' AdminName
         ' 
         AdminName.HeaderText = "Name"
@@ -180,10 +186,10 @@ Partial Class ManageAccountUserControl
         EmailAddress.HeaderText = "Email Address"
         EmailAddress.Name = "EmailAddress"
         ' 
-        ' AdminRole
+        ' LastLogin
         ' 
-        AdminRole.HeaderText = "Role"
-        AdminRole.Name = "AdminRole"
+        LastLogin.HeaderText = "LastLogin"
+        LastLogin.Name = "LastLogin"
         ' 
         ' AccountCreated
         ' 
@@ -203,10 +209,10 @@ Partial Class ManageAccountUserControl
         ' Guna2Panel2
         ' 
         Guna2Panel2.BackColor = Color.Transparent
+        Guna2Panel2.Controls.Add(Guna2ComboBox3)
         Guna2Panel2.Controls.Add(Guna2Button3)
         Guna2Panel2.Controls.Add(Guna2Button2)
         Guna2Panel2.Controls.Add(Guna2TextBox1)
-        Guna2Panel2.Controls.Add(Guna2ComboBox1)
         Guna2Panel2.Controls.Add(Guna2Panel3)
         Guna2Panel2.CustomizableEdges = CustomizableEdges13
         Guna2Panel2.Dock = DockStyle.Top
@@ -221,7 +227,7 @@ Partial Class ManageAccountUserControl
         Guna2Button3.BackColor = Color.Transparent
         Guna2Button3.BorderRadius = 2
         Guna2Button3.BorderThickness = 1
-        Guna2Button3.CustomizableEdges = CustomizableEdges3
+        Guna2Button3.CustomizableEdges = CustomizableEdges5
         Guna2Button3.DisabledState.BorderColor = Color.DarkGray
         Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -233,7 +239,7 @@ Partial Class ManageAccountUserControl
         Guna2Button3.ImageAlign = HorizontalAlignment.Right
         Guna2Button3.Location = New Point(771, 14)
         Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         Guna2Button3.Size = New Size(133, 34)
         Guna2Button3.TabIndex = 2
         Guna2Button3.Text = "Add User"
@@ -244,7 +250,7 @@ Partial Class ManageAccountUserControl
         Guna2Button2.BackColor = Color.Transparent
         Guna2Button2.BorderRadius = 2
         Guna2Button2.BorderThickness = 1
-        Guna2Button2.CustomizableEdges = CustomizableEdges5
+        Guna2Button2.CustomizableEdges = CustomizableEdges7
         Guna2Button2.DisabledState.BorderColor = Color.DarkGray
         Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -257,7 +263,7 @@ Partial Class ManageAccountUserControl
         Guna2Button2.Location = New Point(654, 14)
         Guna2Button2.Name = "Guna2Button2"
         Guna2Button2.Padding = New Padding(20, 0, 0, 0)
-        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         Guna2Button2.Size = New Size(102, 34)
         Guna2Button2.TabIndex = 1
         Guna2Button2.Text = "Export"
@@ -265,7 +271,7 @@ Partial Class ManageAccountUserControl
         ' Guna2TextBox1
         ' 
         Guna2TextBox1.BorderRadius = 12
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges7
+        Guna2TextBox1.CustomizableEdges = CustomizableEdges9
         Guna2TextBox1.DefaultText = ""
         Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -281,30 +287,9 @@ Partial Class ManageAccountUserControl
         Guna2TextBox1.PlaceholderForeColor = Color.FromArgb(CByte(144), CByte(144), CByte(144))
         Guna2TextBox1.PlaceholderText = "Search for user"
         Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2TextBox1.Size = New Size(273, 34)
         Guna2TextBox1.TabIndex = 1
-        ' 
-        ' Guna2ComboBox1
-        ' 
-        Guna2ComboBox1.BackColor = Color.Transparent
-        Guna2ComboBox1.BorderRadius = 12
-        Guna2ComboBox1.CustomizableEdges = CustomizableEdges9
-        Guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed
-        Guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        Guna2ComboBox1.FillColor = Color.FromArgb(CByte(3), CByte(83), CByte(164))
-        Guna2ComboBox1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox1.Font = New Font("Segoe UI", 10F)
-        Guna2ComboBox1.ForeColor = Color.White
-        Guna2ComboBox1.ItemHeight = 30
-        Guna2ComboBox1.Items.AddRange(New Object() {"Role", "Role", "Role"})
-        Guna2ComboBox1.Location = New Point(13, 12)
-        Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Guna2ComboBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        Guna2ComboBox1.Size = New Size(100, 36)
-        Guna2ComboBox1.StartIndex = 0
-        Guna2ComboBox1.TabIndex = 1
         ' 
         ' Guna2Panel3
         ' 
@@ -392,6 +377,27 @@ Partial Class ManageAccountUserControl
         Guna2HtmlLabel3.TabIndex = 7
         Guna2HtmlLabel3.Text = "Page 1 of 1"
         ' 
+        ' Guna2ComboBox3
+        ' 
+        Guna2ComboBox3.BackColor = Color.Transparent
+        Guna2ComboBox3.BorderColor = Color.Black
+        Guna2ComboBox3.BorderRadius = 2
+        Guna2ComboBox3.CustomizableEdges = CustomizableEdges3
+        Guna2ComboBox3.DrawMode = DrawMode.OwnerDrawFixed
+        Guna2ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        Guna2ComboBox3.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2ComboBox3.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2ComboBox3.Font = New Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Guna2ComboBox3.ForeColor = Color.Black
+        Guna2ComboBox3.ItemHeight = 30
+        Guna2ComboBox3.Items.AddRange(New Object() {"Section", "Action", "Status"})
+        Guna2ComboBox3.Location = New Point(23, 12)
+        Guna2ComboBox3.Name = "Guna2ComboBox3"
+        Guna2ComboBox3.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2ComboBox3.Size = New Size(111, 36)
+        Guna2ComboBox3.StartIndex = 0
+        Guna2ComboBox3.TabIndex = 6
+        ' 
         ' ManageAccountUserControl
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -419,7 +425,6 @@ Partial Class ManageAccountUserControl
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
@@ -428,15 +433,17 @@ Partial Class ManageAccountUserControl
     Friend WithEvents Guna2DataGridView1 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2ComboBox2 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Column1 As DataGridViewCheckBoxColumn
-    Friend WithEvents AdminName As DataGridViewTextBoxColumn
-    Friend WithEvents EmailAddress As DataGridViewTextBoxColumn
-    Friend WithEvents AdminRole As DataGridViewTextBoxColumn
-    Friend WithEvents AccountCreated As DataGridViewTextBoxColumn
-    Friend WithEvents Edit As DataGridViewButtonColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
     Friend WithEvents Guna2Button4 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button5 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Column1 As DataGridViewCheckBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents AdminName As DataGridViewTextBoxColumn
+    Friend WithEvents EmailAddress As DataGridViewTextBoxColumn
+    Friend WithEvents LastLogin As DataGridViewTextBoxColumn
+    Friend WithEvents AccountCreated As DataGridViewTextBoxColumn
+    Friend WithEvents Edit As DataGridViewButtonColumn
+    Friend WithEvents Delete As DataGridViewButtonColumn
+    Friend WithEvents Guna2ComboBox3 As Guna.UI2.WinForms.Guna2ComboBox
 
 End Class
