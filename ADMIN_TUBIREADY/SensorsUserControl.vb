@@ -1,21 +1,44 @@
-﻿Public Class SensorsUserControl
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btnViewRiverActivity.Click
+﻿Imports System.Net.Http
+Imports System.Timers
 
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
-    End Sub
+Public Class SensorsUserControl
+    Private updateTimer As System.Timers.Timer
+    Private receiverIP As String = "192.168.254.119" ' Your Receiver IP
+    Private http As New HttpClient()
 
     Private Sub SensorsUserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        ' Auto update every 3 seconds
+        updateTimer = New System.Timers.Timer(3000)
+        AddHandler updateTimer.Elapsed, AddressOf UpdateSensorData
+        updateTimer.Start()
     End Sub
 
-    Private Sub dgvRiverActivityHistory_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRiverActivityHistory.CellContentClick
+    Private Async Sub UpdateSensorData(source As Object, e As ElapsedEventArgs)
+        Try
+            Dim temp As String = Await GetDataAsync("temp")
+            Dim humid As String = Await GetDataAsync("humidity")
 
+            ' Update UI
+            Me.Invoke(Sub()
+                          lblTemp.Text = temp & "°C"
+                          lblHumid.Text = humid & "%"
+                      End Sub)
+
+        Catch ex As Exception
+            ' Error fallback
+            Me.Invoke(Sub()
+                          lblTemp.Text = "ERR"
+                          lblHumid.Text = "ERR"
+                      End Sub)
+        End Try
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Async Function GetDataAsync(endpoint As String) As Task(Of String)
+        Dim url As String = $"http://{receiverIP}/{endpoint}"
+        Dim response As HttpResponseMessage = Await http.GetAsync(url)
+        response.EnsureSuccessStatusCode()
 
-    End Sub
+        Dim content As String = Await response.Content.ReadAsStringAsync()
+        Return content.Trim()
+    End Function
 End Class
