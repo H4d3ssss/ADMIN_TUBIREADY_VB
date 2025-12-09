@@ -132,7 +132,7 @@ Partial Class SensorsUserControl
         Label8 = New Label()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Label7 = New Label()
-        Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
+        btnStatusAlley = New Guna.UI2.WinForms.Guna2CircleButton()
         Guna2Panel6 = New Guna.UI2.WinForms.Guna2Panel()
         Label5 = New Label()
         Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
@@ -152,7 +152,7 @@ Partial Class SensorsUserControl
         btnViewRiverActivity = New Guna.UI2.WinForms.Guna2Button()
         Label2 = New Label()
         GunaAreaDataset1 = New Guna.Charts.WinForms.GunaAreaDataset()
-        Timer1 = New Timer(components)
+        updateTimer = New Timer(components)
         Guna2Panel1.SuspendLayout()
         CType(Guna2PictureBox9, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel3.SuspendLayout()
@@ -213,7 +213,7 @@ Partial Class SensorsUserControl
         ' 
         lblDateTime.AutoSize = True
         lblDateTime.BackColor = Color.White
-        lblDateTime.Font = New Font("Calibri", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblDateTime.Font = New Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblDateTime.Location = New Point(194, 12)
         lblDateTime.Name = "lblDateTime"
         lblDateTime.Size = New Size(403, 29)
@@ -276,32 +276,32 @@ Partial Class SensorsUserControl
         Label13.Font = New Font("Calibri", 14.25F)
         Label13.Location = New Point(41, 11)
         Label13.Name = "Label13"
-        Label13.Size = New Size(163, 23)
+        Label13.Size = New Size(89, 23)
         Label13.TabIndex = 0
-        Label13.Text = "Solar Panel Output :"
+        Label13.Text = "Humidity :"
         ' 
         ' Guna2PictureBox5
         ' 
         Guna2PictureBox5.CustomizableEdges = CustomizableEdges5
-        Guna2PictureBox5.Image = CType(resources.GetObject("Guna2PictureBox5.Image"), Image)
+        Guna2PictureBox5.Image = My.Resources.Resources.humidity
         Guna2PictureBox5.ImageRotate = 0F
-        Guna2PictureBox5.Location = New Point(7, 7)
+        Guna2PictureBox5.Location = New Point(12, 10)
         Guna2PictureBox5.Name = "Guna2PictureBox5"
         Guna2PictureBox5.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2PictureBox5.Size = New Size(37, 29)
+        Guna2PictureBox5.Size = New Size(28, 29)
         Guna2PictureBox5.TabIndex = 2
         Guna2PictureBox5.TabStop = False
         ' 
         ' Label14
         ' 
         Label14.AutoSize = True
-        Label14.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        Label14.Font = New Font("Calibri", 12F, FontStyle.Bold)
         Label14.ForeColor = SystemColors.HotTrack
-        Label14.Location = New Point(203, 14)
+        Label14.Location = New Point(233, 11)
         Label14.Name = "Label14"
-        Label14.Size = New Size(79, 19)
+        Label14.Size = New Size(24, 19)
         Label14.TabIndex = 1
-        Label14.Text = "26V/180W"
+        Label14.Text = "---"
         ' 
         ' Guna2Panel12
         ' 
@@ -345,7 +345,7 @@ Partial Class SensorsUserControl
         ' Label16
         ' 
         Label16.AutoSize = True
-        Label16.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        Label16.Font = New Font("Calibri", 12F, FontStyle.Bold)
         Label16.ForeColor = SystemColors.HotTrack
         Label16.Location = New Point(233, 15)
         Label16.Name = "Label16"
@@ -406,7 +406,7 @@ Partial Class SensorsUserControl
         Guna2CircleButton2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         Guna2CircleButton2.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         Guna2CircleButton2.FillColor = Color.LimeGreen
-        Guna2CircleButton2.Font = New Font("Segoe UI", 9.0F)
+        Guna2CircleButton2.Font = New Font("Segoe UI", 9F)
         Guna2CircleButton2.ForeColor = Color.White
         Guna2CircleButton2.Location = New Point(13, 17)
         Guna2CircleButton2.Name = "Guna2CircleButton2"
@@ -458,7 +458,7 @@ Partial Class SensorsUserControl
         ' Label20
         ' 
         Label20.AutoSize = True
-        Label20.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        Label20.Font = New Font("Calibri", 12F, FontStyle.Bold)
         Label20.ForeColor = SystemColors.HotTrack
         Label20.Location = New Point(227, 14)
         Label20.Name = "Label20"
@@ -506,32 +506,32 @@ Partial Class SensorsUserControl
         Label11.Font = New Font("Calibri", 14.25F)
         Label11.Location = New Point(41, 11)
         Label11.Name = "Label11"
-        Label11.Size = New Size(163, 23)
+        Label11.Size = New Size(89, 23)
         Label11.TabIndex = 0
-        Label11.Text = "Solar Panel Output :"
+        Label11.Text = "Humidity :"
         ' 
         ' Guna2PictureBox4
         ' 
         Guna2PictureBox4.CustomizableEdges = CustomizableEdges24
-        Guna2PictureBox4.Image = CType(resources.GetObject("Guna2PictureBox4.Image"), Image)
+        Guna2PictureBox4.Image = My.Resources.Resources.humidity
         Guna2PictureBox4.ImageRotate = 0F
-        Guna2PictureBox4.Location = New Point(7, 7)
+        Guna2PictureBox4.Location = New Point(12, 10)
         Guna2PictureBox4.Name = "Guna2PictureBox4"
         Guna2PictureBox4.ShadowDecoration.CustomizableEdges = CustomizableEdges25
-        Guna2PictureBox4.Size = New Size(37, 29)
+        Guna2PictureBox4.Size = New Size(28, 29)
         Guna2PictureBox4.TabIndex = 2
         Guna2PictureBox4.TabStop = False
         ' 
         ' lblHumid
         ' 
         lblHumid.AutoSize = True
-        lblHumid.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        lblHumid.Font = New Font("Calibri", 12F, FontStyle.Bold)
         lblHumid.ForeColor = SystemColors.HotTrack
-        lblHumid.Location = New Point(203, 14)
+        lblHumid.Location = New Point(233, 14)
         lblHumid.Name = "lblHumid"
-        lblHumid.Size = New Size(79, 19)
+        lblHumid.Size = New Size(24, 19)
         lblHumid.TabIndex = 1
-        lblHumid.Text = "26V/180W"
+        lblHumid.Text = "---"
         ' 
         ' Guna2Panel8
         ' 
@@ -575,7 +575,7 @@ Partial Class SensorsUserControl
         ' lblTemp
         ' 
         lblTemp.AutoSize = True
-        lblTemp.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        lblTemp.Font = New Font("Calibri", 12F, FontStyle.Bold)
         lblTemp.ForeColor = SystemColors.HotTrack
         lblTemp.Location = New Point(233, 15)
         lblTemp.Name = "lblTemp"
@@ -588,7 +588,7 @@ Partial Class SensorsUserControl
         Guna2Panel7.Controls.Add(Label8)
         Guna2Panel7.Controls.Add(Guna2PictureBox1)
         Guna2Panel7.Controls.Add(Label7)
-        Guna2Panel7.Controls.Add(Guna2CircleButton1)
+        Guna2Panel7.Controls.Add(btnStatusAlley)
         Guna2Panel7.CustomizableEdges = CustomizableEdges35
         Guna2Panel7.Dock = DockStyle.Top
         Guna2Panel7.Location = New Point(0, 0)
@@ -629,22 +629,22 @@ Partial Class SensorsUserControl
         Label7.TabIndex = 1
         Label7.Text = "Alley 18 Station"
         ' 
-        ' Guna2CircleButton1
+        ' btnStatusAlley
         ' 
-        Guna2CircleButton1.DisabledState.BorderColor = Color.DarkGray
-        Guna2CircleButton1.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2CircleButton1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2CircleButton1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2CircleButton1.FillColor = Color.LimeGreen
-        Guna2CircleButton1.Font = New Font("Segoe UI", 9.0F)
-        Guna2CircleButton1.ForeColor = Color.White
-        Guna2CircleButton1.Location = New Point(13, 17)
-        Guna2CircleButton1.Name = "Guna2CircleButton1"
-        Guna2CircleButton1.ShadowDecoration.CustomizableEdges = CustomizableEdges34
-        Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Guna2CircleButton1.Size = New Size(15, 15)
-        Guna2CircleButton1.TabIndex = 0
-        Guna2CircleButton1.Text = "Guna2CircleButton1"
+        btnStatusAlley.DisabledState.BorderColor = Color.DarkGray
+        btnStatusAlley.DisabledState.CustomBorderColor = Color.DarkGray
+        btnStatusAlley.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnStatusAlley.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnStatusAlley.FillColor = Color.LimeGreen
+        btnStatusAlley.Font = New Font("Segoe UI", 9F)
+        btnStatusAlley.ForeColor = Color.White
+        btnStatusAlley.Location = New Point(13, 17)
+        btnStatusAlley.Name = "btnStatusAlley"
+        btnStatusAlley.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        btnStatusAlley.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        btnStatusAlley.Size = New Size(15, 15)
+        btnStatusAlley.TabIndex = 0
+        btnStatusAlley.Text = "Guna2CircleButton1"
         ' 
         ' Guna2Panel6
         ' 
@@ -688,7 +688,7 @@ Partial Class SensorsUserControl
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Calibri", 12.0F, FontStyle.Bold)
+        Label6.Font = New Font("Calibri", 12F, FontStyle.Bold)
         Label6.ForeColor = SystemColors.HotTrack
         Label6.Location = New Point(227, 14)
         Label6.Name = "Label6"
@@ -727,7 +727,7 @@ Partial Class SensorsUserControl
         ' 
         Label21.AutoSize = True
         Label21.BackColor = Color.Transparent
-        Label21.Font = New Font("Calibri", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label21.Font = New Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label21.ForeColor = Color.IndianRed
         Label21.Location = New Point(25, 50)
         Label21.Name = "Label21"
@@ -773,7 +773,7 @@ Partial Class SensorsUserControl
         ' 
         Label3.AutoSize = True
         Label3.BackColor = Color.White
-        Label3.Font = New Font("Calibri", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.Font = New Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.Location = New Point(24, 24)
         Label3.Name = "Label3"
         Label3.Size = New Size(251, 29)
@@ -826,14 +826,14 @@ Partial Class SensorsUserControl
         ' 
         dgvRiverActivityHistory.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Calibri", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle1.Font = New Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         dgvRiverActivityHistory.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.White
-        DataGridViewCellStyle2.Font = New Font("Calibri", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle2.ForeColor = Color.Black
         DataGridViewCellStyle2.SelectionBackColor = Color.White
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -844,7 +844,7 @@ Partial Class SensorsUserControl
         dgvRiverActivityHistory.Columns.AddRange(New DataGridViewColumn() {Time, WaterLevel, Status})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Calibri", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.Font = New Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         DataGridViewCellStyle3.ForeColor = Color.Black
         DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
@@ -857,7 +857,7 @@ Partial Class SensorsUserControl
         dgvRiverActivityHistory.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = Color.White
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9.0F)
+        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle4.ForeColor = SystemColors.WindowText
         DataGridViewCellStyle4.SelectionBackColor = Color.White
         DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
@@ -875,14 +875,14 @@ Partial Class SensorsUserControl
         dgvRiverActivityHistory.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvRiverActivityHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         dgvRiverActivityHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        dgvRiverActivityHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9.0F)
+        dgvRiverActivityHistory.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvRiverActivityHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White
         dgvRiverActivityHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvRiverActivityHistory.ThemeStyle.HeaderStyle.Height = 25
         dgvRiverActivityHistory.ThemeStyle.ReadOnly = False
         dgvRiverActivityHistory.ThemeStyle.RowsStyle.BackColor = Color.White
         dgvRiverActivityHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        dgvRiverActivityHistory.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9.0F)
+        dgvRiverActivityHistory.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
         dgvRiverActivityHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         dgvRiverActivityHistory.ThemeStyle.RowsStyle.Height = 25
         dgvRiverActivityHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
@@ -914,7 +914,7 @@ Partial Class SensorsUserControl
         btnViewRiverActivity.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnViewRiverActivity.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         btnViewRiverActivity.FillColor = Color.LightGray
-        btnViewRiverActivity.Font = New Font("Calibri", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnViewRiverActivity.Font = New Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnViewRiverActivity.ForeColor = Color.Black
         btnViewRiverActivity.Location = New Point(323, 824)
         btnViewRiverActivity.Name = "btnViewRiverActivity"
@@ -927,7 +927,7 @@ Partial Class SensorsUserControl
         ' 
         Label2.AutoSize = True
         Label2.BackColor = Color.White
-        Label2.Font = New Font("Calibri", 18.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Font = New Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.Location = New Point(67, 14)
         Label2.Name = "Label2"
         Label2.Size = New Size(222, 29)
@@ -940,14 +940,13 @@ Partial Class SensorsUserControl
         GunaAreaDataset1.FillColor = Color.Empty
         GunaAreaDataset1.Label = "Area1"
         ' 
-        ' Timer1
+        ' updateTimer
         ' 
-        Timer1.Enabled = True
-        Timer1.Interval = 3000
+        updateTimer.Interval = 1000
         ' 
         ' SensorsUserControl
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         Controls.Add(Guna2Panel2)
         Controls.Add(Guna2Panel4)
@@ -1015,7 +1014,7 @@ Partial Class SensorsUserControl
     Friend WithEvents Guna2Panel7 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents Guna2CircleButton1 As Guna.UI2.WinForms.Guna2CircleButton
+    Friend WithEvents btnStatusAlley As Guna.UI2.WinForms.Guna2CircleButton
     Friend WithEvents Label8 As Label
     Friend WithEvents Guna2Panel9 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Label11 As Label
@@ -1052,6 +1051,6 @@ Partial Class SensorsUserControl
     Friend WithEvents Guna2PictureBox10 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Label21 As Label
     Friend WithEvents tmrUpdate As Timer
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents updateTimer As Timer
 
 End Class

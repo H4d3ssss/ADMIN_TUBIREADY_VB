@@ -458,6 +458,7 @@ Partial Class MainForm
         Controls.Add(SidebarMenu)
         MaximizeBox = False
         Name = "MainForm"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "TubiReady"
         SidebarMenu.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()

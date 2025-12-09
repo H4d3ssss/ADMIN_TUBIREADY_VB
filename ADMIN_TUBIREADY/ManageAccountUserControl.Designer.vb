@@ -32,6 +32,8 @@ Partial Class ManageAccountUserControl
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -46,8 +48,6 @@ Partial Class ManageAccountUserControl
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -61,6 +61,7 @@ Partial Class ManageAccountUserControl
         Edit = New DataGridViewButtonColumn()
         Delete = New DataGridViewButtonColumn()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2ComboBox3 = New Guna.UI2.WinForms.Guna2ComboBox()
         Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
@@ -70,7 +71,6 @@ Partial Class ManageAccountUserControl
         Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button5 = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2ComboBox3 = New Guna.UI2.WinForms.Guna2ComboBox()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
         CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -85,7 +85,7 @@ Partial Class ManageAccountUserControl
         Guna2PictureBox1.Location = New Point(35, 23)
         Guna2PictureBox1.Name = "Guna2PictureBox1"
         Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2PictureBox1.Size = New Size(49, 50)
+        Guna2PictureBox1.Size = New Size(50, 50)
         Guna2PictureBox1.TabIndex = 0
         Guna2PictureBox1.TabStop = False
         ' 
@@ -221,6 +221,27 @@ Partial Class ManageAccountUserControl
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         Guna2Panel2.Size = New Size(920, 55)
         Guna2Panel2.TabIndex = 0
+        ' 
+        ' Guna2ComboBox3
+        ' 
+        Guna2ComboBox3.BackColor = Color.Transparent
+        Guna2ComboBox3.BorderColor = Color.Black
+        Guna2ComboBox3.BorderRadius = 2
+        Guna2ComboBox3.CustomizableEdges = CustomizableEdges3
+        Guna2ComboBox3.DrawMode = DrawMode.OwnerDrawFixed
+        Guna2ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        Guna2ComboBox3.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2ComboBox3.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2ComboBox3.Font = New Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Guna2ComboBox3.ForeColor = Color.Black
+        Guna2ComboBox3.ItemHeight = 30
+        Guna2ComboBox3.Items.AddRange(New Object() {"Section", "Action", "Status"})
+        Guna2ComboBox3.Location = New Point(23, 12)
+        Guna2ComboBox3.Name = "Guna2ComboBox3"
+        Guna2ComboBox3.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2ComboBox3.Size = New Size(111, 36)
+        Guna2ComboBox3.StartIndex = 0
+        Guna2ComboBox3.TabIndex = 6
         ' 
         ' Guna2Button3
         ' 
@@ -376,27 +397,6 @@ Partial Class ManageAccountUserControl
         Guna2HtmlLabel3.Size = New Size(75, 22)
         Guna2HtmlLabel3.TabIndex = 7
         Guna2HtmlLabel3.Text = "Page 1 of 1"
-        ' 
-        ' Guna2ComboBox3
-        ' 
-        Guna2ComboBox3.BackColor = Color.Transparent
-        Guna2ComboBox3.BorderColor = Color.Black
-        Guna2ComboBox3.BorderRadius = 2
-        Guna2ComboBox3.CustomizableEdges = CustomizableEdges3
-        Guna2ComboBox3.DrawMode = DrawMode.OwnerDrawFixed
-        Guna2ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
-        Guna2ComboBox3.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox3.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2ComboBox3.Font = New Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Guna2ComboBox3.ForeColor = Color.Black
-        Guna2ComboBox3.ItemHeight = 30
-        Guna2ComboBox3.Items.AddRange(New Object() {"Section", "Action", "Status"})
-        Guna2ComboBox3.Location = New Point(23, 12)
-        Guna2ComboBox3.Name = "Guna2ComboBox3"
-        Guna2ComboBox3.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2ComboBox3.Size = New Size(111, 36)
-        Guna2ComboBox3.StartIndex = 0
-        Guna2ComboBox3.TabIndex = 6
         ' 
         ' ManageAccountUserControl
         ' 

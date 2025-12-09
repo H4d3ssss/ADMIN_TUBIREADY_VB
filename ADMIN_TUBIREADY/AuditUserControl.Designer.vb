@@ -381,7 +381,7 @@ Partial Class AuditUserControl
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
         Guna2HtmlLabel1.Font = New Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel1.Location = New Point(87, 32)
+        Guna2HtmlLabel1.Location = New Point(87, 29)
         Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Guna2HtmlLabel1.Size = New Size(94, 27)
         Guna2HtmlLabel1.TabIndex = 9
@@ -392,10 +392,10 @@ Partial Class AuditUserControl
         Guna2PictureBox1.CustomizableEdges = CustomizableEdges21
         Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), Image)
         Guna2PictureBox1.ImageRotate = 0F
-        Guna2PictureBox1.Location = New Point(32, 14)
+        Guna2PictureBox1.Location = New Point(35, 23)
         Guna2PictureBox1.Name = "Guna2PictureBox1"
         Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        Guna2PictureBox1.Size = New Size(49, 50)
+        Guna2PictureBox1.Size = New Size(50, 50)
         Guna2PictureBox1.TabIndex = 8
         Guna2PictureBox1.TabStop = False
         ' 

@@ -9,6 +9,7 @@ Imports System.Text
 Imports System.IO
 Imports System.Net.Http
 Imports System.Threading.Tasks
+Imports MySql.Data.MySqlClient
 
 Public Class DashboardUserControl
 
@@ -52,6 +53,7 @@ Public Class DashboardUserControl
 
 
     Private Sub DashboardUserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
 
@@ -253,7 +255,7 @@ Public Class DashboardUserControl
     ' ---------------- SEND BUZZER COMMAND ----------------
     Private Async Function SendCommandToESPAsync(endpoint As String) As Task
         Try
-            Dim baseUrl As String = "http://10.237.203.199"
+            Dim baseUrl As String = "http://10.148.172.199"
             Dim url As String = If(endpoint.StartsWith("/"), baseUrl & endpoint, baseUrl & "/" & endpoint)
             Dim resp = Await httpClient.GetAsync(url)
             Dim body = Await resp.Content.ReadAsStringAsync()
@@ -271,11 +273,15 @@ Public Class DashboardUserControl
             Label4.Text = "Deactivate Buzzer"
             Guna2Button11.Text = "TURN BUZZER OFF"
             buzzerState = True
+            Guna2Button11.FillColor = Color.Red
+            MessageBox.Show("Siren Activated")
         Else
             Await SendCommandToESPAsync("/buzzer_off")
             Label4.Text = "Activate Buzzer"
             Guna2Button11.Text = "TURN BUZZER ON"
             buzzerState = False
+            Guna2Button11.FillColor = Color.White
+            MessageBox.Show("Siren Deactivated")
         End If
     End Sub
 
@@ -284,7 +290,7 @@ Public Class DashboardUserControl
     ' Return Tuple(Of Double, String) to maximize compatibility
     Private Async Function GetWaterDataFromReceiverAsync() As Task(Of Tuple(Of Double, String))
         Try
-            Dim url As String = "http://10.237.203.199/waterlevel"
+            Dim url As String = "http://10.148.172.199/waterlevel"
             Dim raw As String = (Await httpClient.GetStringAsync(url)).Trim()
 
             Dim level As Double = 0
@@ -318,11 +324,15 @@ Public Class DashboardUserControl
         End Try
     End Function
 
-    Private Sub btnWaterLevelALley_Click(sender As Object, e As EventArgs) Handles btnWaterLevelAlley.Click
+    Private Sub btnWaterLevelALley_Click(sender As Object, e As EventArgs)
         lblWaterLevel.Text = "ALLEY WATER LEVEL"
     End Sub
 
-    Private Sub btnWaterLevelEntry_Click(sender As Object, e As EventArgs) Handles btnWaterLevelEntry.Click
+    Private Sub btnWaterLevelEntry_Click(sender As Object, e As EventArgs)
         lblWaterLevel.Text = "ENTRY WATER LEVEL"
+    End Sub
+
+    Private Sub Guna2vScrollBar1_Scroll(sender As Object, e As ScrollEventArgs)
+
     End Sub
 End Class
