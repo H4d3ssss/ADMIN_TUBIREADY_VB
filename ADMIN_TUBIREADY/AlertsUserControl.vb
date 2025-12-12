@@ -85,13 +85,13 @@ Public Class AlertsUserControl
 
     Private Async Sub Guna2Button5_Click(sender As Object, e As EventArgs) Handles Guna2Button5.Click
         Try
-            Dim phone As String = "09951812114"
+            Dim phone As String = "09065867926"
             Dim otp As String = "123456"
 
             Dim success = Await SendOtpSMS(phone, otp)
 
             If success Then
-                MessageBox.Show("SMS sent!")
+                MessageBox.Show("SMS sent!" + otp)
 
             End If
 

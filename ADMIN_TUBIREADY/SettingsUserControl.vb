@@ -44,14 +44,14 @@
     ''' Replace the content of the right-side container with the provided control.
     ''' Ensures the control is docked and brought to front.
     ''' </summary>
-    Private Sub ShowControl(ctrl As UserControl)
+    Private Sub ShowControl(ctrl As System.Windows.Forms.UserControl)
         If ctrl Is Nothing Then
             SettingsPanelContainer.Controls.Clear()
             Return
         End If
 
         SettingsPanelContainer.Controls.Clear()
-        ctrl.Dock = DockStyle.Fill
+        ctrl.Dock = System.Windows.Forms.DockStyle.Fill
         SettingsPanelContainer.Controls.Add(ctrl)
         ctrl.BringToFront()
     End Sub
